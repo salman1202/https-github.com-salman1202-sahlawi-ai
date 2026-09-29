@@ -1,0 +1,12 @@
+{
+  "name": "Aura AI Companion",
+  "description": "Next-generation personalized AI voice companion with real-time speech, long-term memory, emotional intelligence, screen sharing, and multi-dialect Arabic & English support.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "display-capture"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

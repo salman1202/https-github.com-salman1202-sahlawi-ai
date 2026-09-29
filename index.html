@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function() {
+        try {
+          var originalFetch = window.fetch ? window.fetch.bind(window) : null;
+          var _currentFetch = originalFetch;
+          var descriptor = {
+            get: function() {
+              return _currentFetch;
+            },
+            set: function(fn) {
+              _currentFetch = fn;
+            },
+            configurable: true,
+            enumerable: true
+          };
+          try {
+            Object.defineProperty(window, 'fetch', descriptor);
+          } catch (e1) {
+            if (typeof Window !== 'undefined' && Window.prototype) {
+              try {
+                Object.defineProperty(Window.prototype, 'fetch', descriptor);
+              } catch (e2) {}
+            }
+          }
+        } catch (err) {}
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aura AI Companion</title>
+    <meta name="description" content="Next-generation personalized AI voice companion with real-time speech, long-term memory, emotional intelligence, screen sharing, and multi-dialect Arabic & English support." />
+    <meta property="og:title" content="Aura AI Companion" />
+    <meta property="og:description" content="Next-generation personalized AI voice companion with real-time speech, long-term memory, emotional intelligence, screen sharing, and multi-dialect Arabic & English support." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  </head>
+  <body class="bg-[#090b10] text-[#f1f5f9] antialiased selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
